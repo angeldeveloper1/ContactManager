@@ -1,6 +1,7 @@
 package com.proyecto3_2;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ListaDeContactos {
@@ -25,60 +26,72 @@ public class ListaDeContactos {
         System.out.println("Se ha agregado al contacto");
     }
 
-    public void eliminarContactos() {
-        System.out.println("Ingrese la posicion del contacto que desea eliminar");
-        int posicion = sc.nextInt();
-        sc.nextLine();
+    public void eliminarContactos() throws InputMismatchException{
+        try {
+            System.out.println("Ingrese la posicion del contacto que desea eliminar");
+            int posicion = sc.nextInt();
+            sc.nextLine();
 
-        if (posicion >= 0 && posicion < listaContactos.size()) {
-            Contactos contactos = listaContactos.get(posicion);
-            listaContactos.remove(contactos);
-            System.out.println("Se ha eliminado la persona del contacto");
-        } else {
-            System.out.println("No existe el contacto de esa posicion");
+            if (posicion >= 0 && posicion < listaContactos.size()) {
+                Contactos contactos = listaContactos.get(posicion);
+                listaContactos.remove(contactos);
+                System.out.println("Se ha eliminado la persona del contacto");
+            } else {
+                System.out.println("No existe el contacto de esa posicion");
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Error, intente nuevamente ingresando la posicion del contacto (0,1,2,3,etc...)");
+            sc.nextLine();
         }
+
     }
 
-    public void editarContactos() {
-        System.out.println("Ingrese la posicion del contacto que desea editar");
-        int posicion = sc.nextInt();
-        sc.nextLine();
-
-        if (posicion >= 0 && posicion < listaContactos.size()) {
-            System.out.println("Que desea editar de este contacto");
-            System.out.println("1. El nombre");
-            System.out.println("2. El apellido");
-            System.out.println("3. El genero");
-            int opcion = sc.nextInt();
+    public void editarContactos() throws InputMismatchException{
+        try {
+            System.out.println("Ingrese la posicion del contacto que desea editar");
+            int posicion = sc.nextInt();
             sc.nextLine();
-            if (opcion < 1 || opcion > 3) {
-                System.out.println("Opcion incorrecta");
+
+            if (posicion >= 0 && posicion < listaContactos.size()) {
+                System.out.println("Que desea editar de este contacto");
+                System.out.println("1. El nombre");
+                System.out.println("2. El apellido");
+                System.out.println("3. El genero");
+                int opcion = sc.nextInt();
+                sc.nextLine();
+                if (opcion < 1 || opcion > 3) {
+                    System.out.println("Opcion incorrecta");
+                } else {
+                    if (opcion == 1) {
+                        System.out.println("Edita el nombre");
+                        String nombre = sc.nextLine();
+                        Contactos contactos = listaContactos.get(posicion);
+                        contactos.setNombre(nombre);
+                        System.out.println("Ha editado el nombre correctamente");
+                    }
+                    if (opcion == 2) {
+                        System.out.println("Edita el apellido");
+                        String apellido = sc.nextLine();
+                        Contactos contactos = listaContactos.get(posicion);
+                        contactos.setApellido(apellido);
+                        System.out.println("Ha editado el apellido correctamente");
+                    }
+                    if (opcion == 3) {
+                        System.out.println("Edita el genero");
+                        String genero = sc.nextLine();
+                        Contactos contactos = listaContactos.get(posicion);
+                        contactos.setGenero(genero);
+                        System.out.println("Ha editado el genero correctamente");
+                    }
+                }
             } else {
-                if (opcion == 1) {
-                    System.out.println("Edita el nombre");
-                    String nombre = sc.nextLine();
-                    Contactos contactos = listaContactos.get(posicion);
-                    contactos.setNombre(nombre);
-                    System.out.println("Ha editado el nombre correctamente");
-                }
-                if (opcion == 2) {
-                    System.out.println("Edita el apellido");
-                    String apellido = sc.nextLine();
-                    Contactos contactos = listaContactos.get(posicion);
-                    contactos.setApellido(apellido);
-                    System.out.println("Ha editado el apellido correctamente");
-                }
-                if (opcion == 3) {
-                    System.out.println("Edita el genero");
-                    String genero = sc.nextLine();
-                    Contactos contactos = listaContactos.get(posicion);
-                    contactos.setGenero(genero);
-                    System.out.println("Ha editado el genero correctamente");
-                }
+                System.out.println("No existe el contacto de esa posicion");
             }
-        } else {
-            System.out.println("No existe el contacto de esa posicion");
+        } catch (InputMismatchException e){
+            System.out.println("Error, intente nuevamente ingresando la posicion del contacto (0,1,2,3,etc...)");
+            sc.nextLine();
         }
+
     }
 
     public void mostrarContactos() {
