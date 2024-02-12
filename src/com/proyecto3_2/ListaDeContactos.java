@@ -26,7 +26,7 @@ public class ListaDeContactos {
         System.out.println("Se ha agregado al contacto");
     }
 
-    public void eliminarContactos() throws InputMismatchException{
+    public void eliminarContactos() throws InputMismatchException {
         try {
             System.out.println("Ingrese la posicion del contacto que desea eliminar");
             int posicion = sc.nextInt();
@@ -46,7 +46,7 @@ public class ListaDeContactos {
 
     }
 
-    public void editarContactos() throws InputMismatchException{
+    public void editarContactos() throws InputMismatchException {
         try {
             System.out.println("Ingrese la posicion del contacto que desea editar");
             int posicion = sc.nextInt();
@@ -87,7 +87,7 @@ public class ListaDeContactos {
             } else {
                 System.out.println("No existe el contacto de esa posicion");
             }
-        } catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("Error, intente nuevamente ingresando la posicion del contacto (0,1,2,3,etc...)");
             sc.nextLine();
         }

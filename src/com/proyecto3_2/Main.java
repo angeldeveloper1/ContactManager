@@ -22,7 +22,7 @@ public class Main {
                 int opcion = sc.nextInt();
                 sc.nextLine();
 
-                if (opcion < 1 || opcion > 5){
+                if (opcion < 1 || opcion > 5) {
                     System.out.println("Error, esa opcion no existe");
                 }
 
@@ -47,7 +47,6 @@ public class Main {
                 System.out.println("Error. Ingrese una opcion valida");
                 sc.next();
             }
-
 
 
         }

@@ -6,7 +6,7 @@ public class Contactos {
     private String apellido;
     private String genero;
 
-    public Contactos(String nombre, String apellido, String genero){
+    public Contactos(String nombre, String apellido, String genero) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
@@ -38,6 +38,6 @@ public class Contactos {
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + " | Apellido: " + apellido + " | Genero: " +genero;
+        return "Nombre: " + nombre + " | Apellido: " + apellido + " | Genero: " + genero;
     }
 }
