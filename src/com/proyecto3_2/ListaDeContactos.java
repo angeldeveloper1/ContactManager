@@ -85,7 +85,7 @@ public class ListaDeContactos {
         if (listaContactos.size() == 0) {
             System.out.println("No hay ningun contacto");
         } else {
-            for (int i = 0; i < listaContactos.size(); i++){
+            for (int i = 0; i < listaContactos.size(); i++) {
                 System.out.println(i + ". " + listaContactos.get(i).toString());
             }
         }

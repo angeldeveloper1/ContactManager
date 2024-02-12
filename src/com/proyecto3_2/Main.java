@@ -16,6 +16,25 @@ public class Main {
             System.out.println("3. Editar Contactos");
             System.out.println("4. Mostrar Contactos");
             System.out.println("5. Salir");
+            int opcion = sc.nextInt();
+            sc.nextLine();
+
+            if (opcion == 1){
+                listaContactos.agregarContactos();
+            }
+            if (opcion==2){
+                listaContactos.eliminarContactos();
+            }
+            if (opcion==3){
+                listaContactos.editarContactos();
+            }
+            if (opcion==4){
+                listaContactos.mostrarContactos();
+            }
+            if (opcion==5){
+                System.out.println("Hasta pronto!");
+                condicion = false;
+            }
 
         }
 
